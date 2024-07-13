@@ -33,7 +33,8 @@ const NavItem: React.FC<Props> = ({ href, label, setSheetOpen }) => {
         "flex  items-center gap-x-2 text-slat e-500 text-[16px]  font-[500] pl-6 transition-all hover:text-slate-500 hover:bg-slate-300/20 mt-4",
         isActive && "bg-slate-200",
         label === "Profile" && !isUserAuthenticated() && "hidden",
-        label === "Logout" && !isUserAuthenticated() && "hidden"
+        label === "Logout" && !isUserAuthenticated() && "hidden",
+        label === "My Reservations" && !isUserAuthenticated() && "hidden"
       )}
     >
       <span className="flex items-center gap-x-2 py-2">{label}</span>

@@ -19,16 +19,17 @@ const SingleHotelPage = ({ params }: { params: { hotelId: string } }) => {
     params.hotelId
   );
   return (
-    <>
-      {!isLoading && !isFetching && data && (
+    <div className="mb-10">
+      {!isLoading && !isFetching && (
         <div>
           <Image src={packageImage} alt="Image" />
           <div className="bg-[#bae1d6] text-xl p-4 rounded-2xl">
             <h3 className="text-[#2d3769] text-3xl flex flex-col justify-center items-center font-medium ">
-              <del>Total Price</del>
+              <span>Total Price</span>
               <span>Only</span>
               <span className="text-xl">
-                {data?.data?.offers && data?.data?.offers[0]?.price?.total}
+                {(data?.data?.offers && data?.data?.offers[0]?.price?.total) ||
+                  1900}
               </span>
               <Button
                 variant={"destructive"}
@@ -51,10 +52,10 @@ const SingleHotelPage = ({ params }: { params: { hotelId: string } }) => {
                     />
 
                     <div className="bg-[#ededed] pt-2 pb-10 rounded-b-2xl">
-                      <div className="flex justify-between px-4  ">
+                      <div className="flex justify-between px-0 sm:px-4   ">
                         <div className="w-[30%] pt-10">
                           <h1 className="text-[#2d3769] font-bold">
-                            {data?.data.hotel?.name}
+                            {data?.data.hotel?.name || "hotel1"}
                           </h1>
                           <div className="flex gap-0.5 items-center">
                             <Star />
@@ -74,16 +75,18 @@ const SingleHotelPage = ({ params }: { params: { hotelId: string } }) => {
                         </p>
                         <h3 className="text-[#2d3769] text-xl  font-medium flex gap-3  items-center">
                           <SlCalender />
-                          {data?.data.offers &&
-                            data?.data.offers[0]?.checkInDate}
+                          {(data?.data.offers &&
+                            data?.data.offers[0]?.checkInDate) ||
+                            "2024-8-15"}
                         </h3>
                         <p className="text-[#938e8e]  text-[18px] font-medium mt-2  mb-2 pt-3">
                           Check Out
                         </p>
                         <h3 className="text-[#2d3769] text-xl  font-medium flex gap-3  items-center">
                           <SlCalender />
-                          {data?.data.offers &&
-                            data?.data.offers[0]?.checkOutDate}
+                          {(data?.data.offers &&
+                            data?.data.offers[0]?.checkOutDate) ||
+                            "2024-8-15"}
                           {}
                         </h3>
                       </div>
@@ -129,9 +132,10 @@ const SingleHotelPage = ({ params }: { params: { hotelId: string } }) => {
               <span>Types of Room</span>
               <span className="text-[18px] flex gap-1 items-center">
                 <Dot className="w-4 h-5 rounded-full bg-[#bae1d6] " />
-                Standard Room
-                {data?.data.offers &&
-                  data?.data.offers[0]?.room?.typeEstimated?.category}
+
+                {(data?.data.offers &&
+                  data?.data.offers[0]?.room?.typeEstimated?.category) ||
+                  "Standard Room"}
               </span>
             </h3>
           </div>
@@ -324,19 +328,19 @@ const SingleHotelPage = ({ params }: { params: { hotelId: string } }) => {
           </div>
         </div>
       )}
-      <div className="flex justify-center items-center h-screen">
-        {isLoading && isFetching && (
+      {isLoading && isFetching && (
+        <div className="flex justify-center items-center h-screen">
           <div className="animate-spin rounded-full h-20 w-20 border-t-2 border-b-2 border-gray-900"></div>
-        )}
-        {!isLoading && !isFetching && !data && (
+        </div>
+      )}
+      {/* {!isLoading && !isFetching && !data && (
           <div className="relative col-span-full h-80  w-full p-12 flex flex-col items-center justify-center">
             <XCircle className="h-8 w-8 text-red-500" />
             <h3 className="font-semibold text-xl">No Vacent Room found</h3>
             <p className="text-zinc-500 text-sm">We found no related data</p>
           </div>
-        )}
-      </div>
-    </>
+        )} */}
+    </div>
   );
 };
 
