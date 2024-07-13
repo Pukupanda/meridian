@@ -377,11 +377,12 @@ const OfferPage = () => {
         </div>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 mt-10">
-        <HotelCard hotel={{ name: "hotel1" }} />
-        <HotelCard hotel={{ name: "hotel1" }} />
-        <HotelCard hotel={{ name: "hotel1" }} />
-        <HotelCard hotel={{ name: "hotel1" }} />
-        <HotelCard hotel={{ name: "hotel1" }} />
+        <HotelCard hotel={{ name: "hotel1", hotelId: "HSBCNARR" }} />
+        <HotelCard hotel={{ name: "hotel1", hotelId: "HSBCNARR" }} />
+        <HotelCard hotel={{ name: "hotel1", hotelId: "HSBCNARR" }} />
+        <HotelCard hotel={{ name: "hotel1", hotelId: "HSBCNARR" }} />
+        <HotelCard hotel={{ name: "hotel1", hotelId: "HSBCNARR" }} />
+        <HotelCard hotel={{ name: "hotel1", hotelId: "HSBCNARR" }} />
       </div>
     </div>
   );

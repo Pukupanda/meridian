@@ -68,24 +68,27 @@ const EditProfileForm: React.FC<Props> = ({ userDetails }) => {
 
   const { data, isFetching, isLoading } = useGetCurrentUser();
   return (
-    <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 my-10 z-0 flex justify-center">
-      <Card className="w-[781px] h-[448px] bg-[#BAE1D6] rounded-[25px] relative">
-        <CardContent className="p-8">
+    <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 my-5 sm:my-10 z-0 flex justify-center">
+      <Card className="w-full max-w-[781px] bg-[#BAE1D6] rounded-[25px] relative">
+        <CardContent className="p-4 sm:p-8">
           <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-              <div className="grid grid-cols-2 gap-x-8">
+            <form
+              onSubmit={form.handleSubmit(onSubmit)}
+              className="space-y-4 sm:space-y-6"
+            >
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-x-8">
                 <FormField
                   control={form.control}
                   name="firstName"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="block text-[16px] font-semibold text-[#2D3769] mb-2">
+                      <FormLabel className="block text-[14px] sm:text-[16px] font-semibold text-[#2D3769] mb-2">
                         Name*
                       </FormLabel>
                       <FormControl>
                         <Input
                           {...field}
-                          className="w-full h-[50px] bg-white rounded-[10px]"
+                          className="w-full h-[40px] sm:h-[50px] bg-white rounded-[10px]"
                           placeholder="Enter First Name"
                         />
                       </FormControl>
@@ -98,13 +101,13 @@ const EditProfileForm: React.FC<Props> = ({ userDetails }) => {
                   name="lastName"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="block text-[16px] font-semibold text-[#2D3769] mb-2">
+                      <FormLabel className="block text-[14px] sm:text-[16px] font-semibold text-[#2D3769] mb-2">
                         Last name*
                       </FormLabel>
                       <FormControl>
                         <Input
                           {...field}
-                          className="w-full h-[50px] bg-white rounded-[10px]"
+                          className="w-full h-[40px] sm:h-[50px] bg-white rounded-[10px]"
                           placeholder="Enter Last Name"
                         />
                       </FormControl>
@@ -113,14 +116,15 @@ const EditProfileForm: React.FC<Props> = ({ userDetails }) => {
                   )}
                 />
               </div>
-              <div className="grid grid-cols-2 gap-x-8">
-                <div className="grid grid-cols-2 gap-x-8">
-                  <p className="mb-2 text-sm font-medium">Email</p>
-                  <div className="col-span-2">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-x-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-0 sm:gap-x-8">
+                  <p className="block text-[14px] sm:text-[16px] font-semibold text-[#2D3769] mb-2">
+                    Email
+                  </p>
+                  <div className="col-span-1 sm:col-span-2">
                     <Input
                       name="email"
-                      className="w-full h-[50px] bg-white rounded-[10px]"
-                      value={userDetails?.email}
+                      className="w-full h-[40px] sm:h-[50px] bg-white rounded-[10px]"
                       placeholder="Enter Email"
                     />
                   </div>
@@ -130,13 +134,13 @@ const EditProfileForm: React.FC<Props> = ({ userDetails }) => {
                   name="phoneNumber"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="block text-[16px] font-semibold text-[#2D3769] mb-2">
+                      <FormLabel className="block text-[14px] sm:text-[16px] font-semibold text-[#2D3769] mb-2">
                         Phone number*
                       </FormLabel>
                       <FormControl>
                         <Input
                           {...field}
-                          className="w-full h-[50px] bg-white rounded-[10px]"
+                          className="w-full h-[40px] sm:h-[50px] bg-white rounded-[10px]"
                           placeholder="Enter Phone Number"
                         />
                       </FormControl>
@@ -146,21 +150,21 @@ const EditProfileForm: React.FC<Props> = ({ userDetails }) => {
                 />
               </div>
               <div>
-                <FormLabel className="block text-center text-[12px]  font-semibold text-[#2D3769] mb-2">
+                <FormLabel className="block text-left text-[12px] font-semibold text-[#2D3769] mb-2">
                   Date of birth*
                 </FormLabel>
-                <div className="flex justify-center gap-x-2">
+                <div className="flex flex-col sm:flex-row justify-center gap-2 sm:gap-x-2">
                   <FormField
                     control={form.control}
                     name="day"
                     render={({ field }) => (
-                      <FormItem>
+                      <FormItem className="w-full sm:w-[112px]">
                         <Select
                           onValueChange={field.onChange}
                           value={field.value}
                         >
                           <FormControl>
-                            <SelectTrigger className="w-[112px] h-[50px] bg-white rounded-[10px]">
+                            <SelectTrigger className="w-full h-[40px] sm:h-[50px] bg-white rounded-[10px]">
                               <SelectValue placeholder="Day" />
                             </SelectTrigger>
                           </FormControl>
@@ -180,13 +184,13 @@ const EditProfileForm: React.FC<Props> = ({ userDetails }) => {
                     control={form.control}
                     name="month"
                     render={({ field }) => (
-                      <FormItem>
+                      <FormItem className="w-full sm:w-[112px]">
                         <Select
                           onValueChange={field.onChange}
                           value={field.value}
                         >
                           <FormControl>
-                            <SelectTrigger className="w-[112px] h-[50px] bg-white rounded-[10px]">
+                            <SelectTrigger className="w-full h-[40px] sm:h-[50px] bg-white rounded-[10px]">
                               <SelectValue placeholder="Month" />
                             </SelectTrigger>
                           </FormControl>
@@ -209,13 +213,13 @@ const EditProfileForm: React.FC<Props> = ({ userDetails }) => {
                     control={form.control}
                     name="year"
                     render={({ field }) => (
-                      <FormItem>
+                      <FormItem className="w-full sm:w-[112px]">
                         <Select
                           onValueChange={field.onChange}
                           value={field.value}
                         >
                           <FormControl>
-                            <SelectTrigger className="w-[112px] h-[50px] bg-white rounded-[10px]">
+                            <SelectTrigger className="w-full h-[40px] sm:h-[50px] bg-white rounded-[10px]">
                               <SelectValue placeholder="Year" />
                             </SelectTrigger>
                           </FormControl>
@@ -233,17 +237,17 @@ const EditProfileForm: React.FC<Props> = ({ userDetails }) => {
                   />
                 </div>
               </div>
-              <div className="flex justify-center space-x-4 mt-6">
+              <div className="flex flex-col sm:flex-row justify-center space-y-2 sm:space-y-0 sm:space-x-4 mt-4 sm:mt-6">
                 <Button
                   type="submit"
-                  className="w-[258px] h-[40px] bg-[#00FFA3] hover:text-white text-[#2D3769] rounded-[25px] font-extrabold text-[19px]"
+                  className="w-full sm:w-[258px] h-[40px] bg-[#00FFA3] text-[#4b62d2] rounded-[25px] font-extrabold text-[16px] sm:text-[19px]"
                 >
                   Save
                 </Button>
                 <Button
                   type="button"
                   onClick={() => router.push("/profile")}
-                  className="w-[258px] h-[40px] bg-[#E81C1C] text-white rounded-[25px] font-extrabold text-[19px]"
+                  className="w-full sm:w-[258px] h-[40px] bg-[#E81C1C] text-white rounded-[25px] font-extrabold text-[16px] sm:text-[19px]"
                 >
                   Cancel
                 </Button>
