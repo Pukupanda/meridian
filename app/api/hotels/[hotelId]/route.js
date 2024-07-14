@@ -15,8 +15,8 @@ const config = {
 
 export async function GET(req, { params }) {
   const { hotelId } = params;
-  const checkInDate = "2024-07-12";
-  const checkOutDate = "2024-07-16";
+  const checkInDate = "2024-07-18";
+  const checkOutDate = "2024-07-19";
   try {
     const response = await axios.get(
       `https://test.api.amadeus.com/v3/shopping/hotel-offers?hotelIds=${hotelId}&checkInDate=${checkInDate}&checkOutDate=${checkOutDate}&currency=EUR`,

@@ -22,6 +22,10 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import toast from "react-hot-toast";
 const FilterBar = () => {
   const [searchText, setsearchText] = useState<string>("");
+  const [holders, setholders] = useState({
+    from: "",
+    to: "",
+  });
   const router = useRouter();
   const [showSugg, setshowSugg] = useState({
     source: false,
@@ -75,7 +79,7 @@ const FilterBar = () => {
                 </h3>
                 <Input
                   placeholder="Search here..."
-                  value={filter.from}
+                  value={holders.from}
                   className="rounded-full"
                   onFocus={() => setshowSugg({ ...showSugg, source: true })}
                 />
@@ -108,6 +112,10 @@ const FilterBar = () => {
                                 ...filter,
                                 from: el?.iataCode,
                               });
+                              setholders({
+                                ...holders,
+                                from: el.name,
+                              });
                               setshowSugg({ ...showSugg, source: false });
                             }}
                           >
@@ -127,7 +135,7 @@ const FilterBar = () => {
                 </h3>
                 <Input
                   placeholder="Search here..."
-                  value={filter.to}
+                  value={holders.to}
                   className="rounded-full"
                   onFocus={() =>
                     setshowSugg({ ...showSugg, destination: true })
@@ -161,6 +169,10 @@ const FilterBar = () => {
                               setfilter({
                                 ...filter,
                                 to: el?.iataCode,
+                              });
+                              setholders({
+                                ...holders,
+                                to: el.name,
                               });
                               setshowSugg({ ...showSugg, destination: false });
                             }}
