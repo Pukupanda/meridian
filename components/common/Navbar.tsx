@@ -23,7 +23,7 @@ import UserInfo from "./UserButton";
 const Navbar = () => {
   const [sheetOpen, setSheetOpen] = useState(false);
   return (
-    <nav className="bg-[#2e386a] flex justify-between items-center px-10 py-2">
+    <nav className="bg-[#2e386a] flex justify-between items-center px-2 sm:px-5 2xl:px-10 py-2">
       <div>
         {!isUserAuthenticated() ? (
           <Link href="/login" className="flex items-center gap-2 text-white">
@@ -36,7 +36,7 @@ const Navbar = () => {
       </div>
       <div>
         <Link href="/">
-          <Image src={logo} alt="Logo" className="w-[135px] " />
+          <Image src={logo} alt="Logo" className="2xl:w-[135px] w-[100px]" />
         </Link>
       </div>
       <div>

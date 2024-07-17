@@ -62,7 +62,7 @@ export default function Home() {
             Subscribe to NewsLetter
           </h3>
           <div className="flex flex-col justify-center items-center">
-            <p className="w-[450px] mt-5 text-[#938e8e] text-center px-auto ">
+            <p className="w-full max-w-lg mt-5 text-[#938e8e] text-center mx-auto px-4 sm:px-6 lg:px-8">
               Subscribe to the Newsletter now, be the first to know about the
               hottest destinations
             </p>
